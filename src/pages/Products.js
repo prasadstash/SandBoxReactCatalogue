@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
-
+import axios from 'axios';
 
 export default function Products() {
 
   const [data, setData]= useState([])
 
   useEffect(()=>{
-    axios.get('https://jsonplaceholder.typicode.com/photos')
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    // axios.get('https://jsonplaceholder.typicode.com/photos')
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err));
 
     axios.get('https://jsonplaceholder.typicode.com/photos')
-    .then(res => setData(res))
+    .then(res => setData(res.data))
     .catch(err => console.log(err));
 
   },[])
@@ -30,15 +30,16 @@ export default function Products() {
         </thead>
         <tbody>
             {
-              data.map((user, index) => 
+              data.map((user, index) => (
               <tr key={index}>
-                <td>userid</td>
-                <td>user.albumId</td>
-                <td>user.url</td>
-                <td>user.thumbnailUrl</td>
-                <td>user.title</td>
+                <td>{user.id}</td>
+                <td>{user.albumId}</td>
+                <td>{user.url}</td>
+                <td>{user.thumbnailUrl}</td>
+                <img src={user.thumnailUrl} />
+                <td>{user.title}</td>
               </tr>
-              ) 
+              )) 
             }
         </tbody>
       </table>
