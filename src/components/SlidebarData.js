@@ -3,7 +3,7 @@ import React from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
-import * as RiIcons from "react-icons/io";
+
 
 export const SidebarData = [
   {
@@ -17,8 +17,8 @@ export const SidebarData = [
     // path: "/reports",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text",
-    iconClosed: <RiIcons.RiArrowDownSFill/>,
-    iconOpen: <RiIcons.RiArrowDownSFill/>,
+    iconClosed: <AiIcons.AiFillHome />,
+    iconOpen: <AiIcons.AiFillHome />,
     subNav: [
       {
         title: "Home",
