@@ -5,12 +5,17 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "axios": "^1.4.0",
     "ionicons": "7.1.2",
+    "json": "^11.0.0",
+    "json-server": "^0.17.3",
     "react": "17.0.0",
+    "react-data-table-component": "^7.5.3",
     "react-dom": "17.0.0",
     "react-icons": "4.1.0",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "server": "^1.0.38"
   },
   "devDependencies": {
     "typescript": "3.8.3"

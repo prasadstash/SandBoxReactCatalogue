@@ -14,7 +14,7 @@ export const SidebarData = [
   },
   {
     title: "Reports",
-    // path: "/reports",
+    path: "/reports",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text",
     iconClosed: <AiIcons.AiFillHome />,
