@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
-import DataTable from "react-data-table-component";
+
 
 export default function Products() {
 
@@ -15,7 +15,7 @@ export default function Products() {
     const json = await response.json();
 
     // Fetching all the images and converting to base64
-    const promises = json.map(async (item) => {
+      const promises = json.map(async (item) => {
       const imageResponse = await fetch(item.thumbnailUrl);
       const buffer = await imageResponse.arrayBuffer();
       const base64String = btoa(
@@ -46,7 +46,7 @@ export default function Products() {
   },[])
 
   return (
-    <div className="table_container">
+    <div className="w3-container">
       <table>
         <thead>
           <tr className="table_header">

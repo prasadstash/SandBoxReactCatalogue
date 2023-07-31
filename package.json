@@ -5,10 +5,12 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@tanstack/react-table": "^8.9.3",
     "axios": "^1.4.0",
     "ionicons": "7.1.2",
     "json": "^11.0.0",
     "json-server": "^0.17.3",
+    "luxon": "^3.3.0",
     "react": "17.0.0",
     "react-data-table-component": "^7.5.3",
     "react-dom": "17.0.0",
@@ -21,8 +23,8 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
