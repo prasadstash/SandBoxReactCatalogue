@@ -16,8 +16,10 @@ function BasicTable() {
     },
     {
       name: "Image_path",
-      selector : row => row.IMAGE_PATH,
+     // selector : row => row.IMAGE_PATH,
+      selector : row => <img width={50} height={50} src={row.IMAGE_PATH}/>,
       sortable : true
+      
     },
     {
       name: "Part Name",
