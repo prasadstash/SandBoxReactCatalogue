@@ -4,8 +4,6 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 import DataTable from 'react-data-table-component'
 
-
-
 function BasicTable() {
 
   const column = [
@@ -15,9 +13,8 @@ function BasicTable() {
       sortable : true
     },
     {
-      name: "Image_path",
-     // selector : row => row.IMAGE_PATH,
-      selector : row => <img width={50} height={50} src={row.IMAGE_PATH}/>,
+      name: "IMAGE_PATH",
+      selector : row => <img width={50} height={50} src={"https://localhost:7154/api/Catalogue/download/"+row.IMAGE_PATH}/>,
       sortable : true
       
     },
@@ -38,30 +35,38 @@ function BasicTable() {
    
   ]
 
-  useEffect(() => {
-    const fetchData = async () => {
-      //axios.get('https://jsonplaceholder.typicode.com/photos')
-      axios.get('/api/Catalogue/')
-      .then(res => {
-        console.log(res)
-        setRecords(res.data)
-        setFilterRecords(res.data)
-      })
-      .catch(err => console.log(err));
-    }
-    fetchData();
-    
-  }, [])
+  
   
   const [records, setRecords] = useState([]);
   const [filterRecords, setFilterRecords] = useState([]);
-
 
   const handleFilter = (event) => {
     const newData = filterRecords.filter(row => row.name.toLowerCase().includes(event.target.value.toLowerCase()));
     setRecords(newData);
   }
-  console.log(records)
+  
+ 
+
+
+  useEffect(() => {
+    
+    const fetchData = async () => {
+      axios.get('/api/Catalogue/')
+      .then(res => {
+        console.log(res.data)
+        setRecords(res.data)
+        setFilterRecords(res.data)
+      })
+      .catch(err => console.log(err));
+    }
+
+    const appendURL = () => {
+      
+    }
+    fetchData();
+    
+  }, [])
+
   return (
     <div style={{padding: "50px 10%", backgroundColor: "grey"}}>
       <div style={{display: 'flex', justifyContent: 'right'}}>
@@ -72,6 +77,9 @@ function BasicTable() {
         data={records}
         pagination
         selectableRows
+        fixedHeader
+        fixedHeaderScrollHeight='700px'
+        
         // customStyles={customStyles}
       ></DataTable>
     </div>

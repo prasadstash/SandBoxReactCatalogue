@@ -7,32 +7,32 @@ export default function Products() {
   const [data, setData]= useState([])
 
   
-  const [usersData, setUsersData] = useState([]);
+  // const [usersData, setUsersData] = useState([]);
 
-  // Function to fetch the images and convert them to base64
-  const fetchAndConvertImages = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/photos');
-    const json = await response.json();
+  // // Function to fetch the images and convert them to base64
+  // const fetchAndConvertImages = async () => {
+  //   //const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+  //   const json = await response.json();
 
-    // Fetching all the images and converting to base64
-      const promises = json.map(async (item) => {
-      const imageResponse = await fetch(item.thumbnailUrl);
-      const buffer = await imageResponse.arrayBuffer();
-      const base64String = btoa(
-        new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
-      );
+  //   // Fetching all the images and converting to base64
+  //     const promises = json.map(async (item) => {
+  //     const imageResponse = await fetch(item.thumbnailUrl);
+  //     const buffer = await imageResponse.arrayBuffer();
+  //     const base64String = btoa(
+  //       new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), '')
+  //     );
 
-      return { ...item, thumbnailUrlBase64: `data:image/jpeg;base64,${base64String}` };
-    });
+  //     return { ...item, thumbnailUrlBase64: `data:image/jpeg;base64,${base64String}` };
+  //   });
 
-    // Waiting for all the promises to resolve and updating the state
-    const updatedData = await Promise.all(promises);
-    setUsersData(updatedData);
-  };
+  //   // Waiting for all the promises to resolve and updating the state
+  //   const updatedData = await Promise.all(promises);
+  //   setUsersData(updatedData);
+  // };
 
-  useEffect(() => {
-    fetchAndConvertImages();
-  }, []);
+  // useEffect(() => {
+  //   fetchAndConvertImages();
+  // }, []);
 
   useEffect(()=>{
     // axios.get('https://jsonplaceholder.typicode.com/photos')
